@@ -14,16 +14,16 @@ public class EscapeSequence {
         Character ch1 = new Character('a');
 
         //\t tabbing
-        //System.out.print("\tTab\n");
+        System.out.print("\tTab\n");
 
         //\b backspace
-        //System.out.print("X\bBackspace");
+        System.out.print("X\bBackspace");
 
         //\r Insert a carriage return in the text at this point
-        //System.out.print("a\n\rreturn");
+        System.out.print("a\n\rreturn");
 
         //\f formfeed
-        //System.out.println("\f");
+        System.out.println("\f");
 
         //\ddd octal char
 
