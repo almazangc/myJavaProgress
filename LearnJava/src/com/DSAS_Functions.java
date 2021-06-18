@@ -41,9 +41,8 @@ public class DSAS_Functions {
         System.out.printf("------------------\n%s", (sel == 1) ? "Floor Function" : "Ceiling Function");
 
         while (true) {
-            System.out.println("Enter a number:");
-            final String s = new Scanner(System.in).nextLine();
-            String strInput = s;
+            System.out.print("\nEnter a number:");
+            String strInput = new Scanner(System.in).nextLine();
             boolean inputValidation = strInput.matches("[-]?[\\d]{0,2}[.]?[\\d]*");
 
             if (!inputValidation) {

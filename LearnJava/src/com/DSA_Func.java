@@ -7,17 +7,19 @@ public class DSA_Func {
         System.out.print("Select function : \n[1] Floor Function\n" +
                 "[2] Ceiling Function\n[3] Modulo Function\n" +
                 "Enter your option: ");
-        int sels = new Scanner(System.in).nextInt();
+        int UserSelection = new Scanner(System.in).nextInt();
 
-        if(sels == 1 | sels == 2) FloorCeil(sels);
-        if(sels == 3) Mod();
+        if(UserSelection == 1 | UserSelection == 2) FloorCeil(UserSelection);
+        if(UserSelection == 3) Mod();
     }
-    static void FloorCeil(int nu){
+    
+    static void FloorCeil(int UserSelection){
         System.out.print("Enter a number: ");
         double num = new Scanner(System.in).nextDouble();
         System.out.printf("The %s of " + num + " is %.0f.",
-                nu == 1 ? "Floor" : "Ceiling", nu == 1 ? Math.floor(num) : Math.ceil(num));
+                UserSelection == 1 ? "Floor" : "Ceiling", UserSelection == 1 ? Math.floor(num) : Math.ceil(num));
     }
+
     static void Mod(){
         System.out.print("Enter number: ");
         int num1 = new Scanner(System.in).nextInt();

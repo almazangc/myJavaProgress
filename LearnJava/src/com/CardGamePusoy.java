@@ -1,6 +1,7 @@
 package com;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -30,7 +31,7 @@ import java.util.Scanner;
             clearConsole(70);
             print("Beep..\nPress Enter to continue...");
             clearConsole(70);
-            print("Bleep.. *Stange noises\nPress Enter to continue...");
+            print("Bleep.. *Strange noises\nPress Enter to continue...");
             clearConsole(70);
             print("Booting up...\nPress Enter to continue...");
             clearConsole(70);
@@ -51,7 +52,7 @@ import java.util.Scanner;
         //Game Process
         public static void gameStart() {
             gameTitle();
-            String pName = getName();
+            String playerName = getName();
 
             ArrayList<int[]> participant_Stat = new ArrayList<>();
             int[] p_0 = {0, 0};
@@ -63,11 +64,11 @@ import java.util.Scanner;
             int[] p_3 = {0, 0};
             participant_Stat.add(p_3);
 
-            gameLoop(pName, participant_Stat);
+            gameLoop(playerName, participant_Stat);
         }
 
         //Game Loop of actions
-        public static void gameLoop(String pName, ArrayList<int[]> participant_Stat) {
+        public static void gameLoop(String playerName, ArrayList<int[]> participant_Stat) {
 
             boolean isRunning = true;
 
@@ -77,12 +78,12 @@ import java.util.Scanner;
                     case 1:
                         clearConsole(70);
                         print(">> Selected Action: New Game...");
-                        newGame(pName, participant_Stat);
+                        newGame(playerName, participant_Stat);
                         break;
                     case 2:
                         clearConsole(70);
                         print(">> Selected Action: Game Stats...");
-                        gameStats(pName, participant_Stat);
+                        gameStats(playerName, participant_Stat);
                         break;
                     case 3:
                         clearConsole(70);
@@ -91,7 +92,7 @@ import java.util.Scanner;
                         break;
                     case 4:
                         clearConsole(70);
-                        print(">> Selected Action: Projet Team Members...");
+                        print(">> Selected Action: Project Team Members...");
                         teamMembers();
                         break;
                     case 5:
@@ -106,7 +107,7 @@ import java.util.Scanner;
         //Game Menu of actions
         public static int gameMenu() {
 
-            String[] gameAction = {"New Game", "Stats", "Game Information", "Projet Team Members", "Quit"};
+            String[] gameAction = {"New Game", "Stats", "Game Information", "Project Team Members", "Quit"};
 
             clearConsole(70);
 
@@ -132,7 +133,7 @@ import java.util.Scanner;
             new Scanner(System.in).nextLine();
         }
 
-        //Display Message with pause just aethetics
+        //Display Message with pause just aesthetic
         public static void print(String text) {
             System.out.print("\r" + text);
             anyContinue();
@@ -203,16 +204,16 @@ import java.util.Scanner;
         public static String confirmName() {
             boolean isConfirmed = false;
 
-            String pName;
+            String playerName;
             do {
                 clearConsole(70);
 
                 System.out.print("Please enter your desired name\nInput: ");
-                pName = new Scanner(System.in).nextLine();
+                playerName = new Scanner(System.in).nextLine();
 
                 clearConsole(70);
 
-                print("Your name is " + pName + "...");
+                print("Your name is " + playerName + "...");
 
                 System.out.print("\nIs that correct?" +
                         "\n\t[ 1 ]  Yes, I affirm." +
@@ -222,19 +223,19 @@ import java.util.Scanner;
 
                 if (input == 1) {
                     clearConsole(70);
-                    print("Okay, Your character name is now ( " + pName + " )");
+                    print("Okay, Your character name is now ( " + playerName + " )");
                     isConfirmed = true;
                 }
 
             } while (!isConfirmed);
 
-            return pName;
+            return playerName;
         }
 
         //Game Information
         public static void gameInfo() {
             clearConsole(70);
-            print("[>> Infomation about the game mechanic contents");
+            print("[>> Information about the game mechanic contents");
 
             clearConsole(70);
             print("[>> Game Rule");
@@ -316,7 +317,7 @@ import java.util.Scanner;
             cardsLoop(player, participant_Stat);
         }
 
-        //Data of cards suit, participants, unshuffled and shuffled Cards
+        //Data of cards suit, participants, un-shuffled and shuffled Cards
         public static void cardsLoop(String player, ArrayList<int[]> participant_Stat) {
 
             String[] suit = {"♦", "♣", "♥", "♠"};
@@ -338,70 +339,67 @@ import java.util.Scanner;
             cardDisplay(shuffledCards, participants);
             print("\n...Enter to Continue...");
 
-            ArrayList<ArrayList> cardCombi = cardCombi(playingCards);
+            ArrayList<ArrayList> cardCombination = cardCombination(playingCards);
 
-            ArrayList<ArrayList> participantCards = sortHand(playingCards, shuffledCards, cardCombi);
+            ArrayList<ArrayList> participantCards = sortHand(playingCards, shuffledCards, cardCombination);
 
-            scoring(participantCards, participants, cardCombi, participant_Stat);
+            scoring(participantCards, participants, cardCombination, participant_Stat);
         }
 
         //list of card combinations
-        public static ArrayList<ArrayList> cardCombi(ArrayList<String> playingCards) {
+        public static ArrayList<ArrayList> cardCombination(ArrayList<String> playingCards) {
 
-            ArrayList<ArrayList> cardCombi = new ArrayList<>();
+            ArrayList<ArrayList> cardCombination = new ArrayList<>();
 
             ArrayList<String[]> combiRoyalStraight = isRoyalStraight(playingCards);
-            cardCombi.add(combiRoyalStraight);
+            cardCombination.add(combiRoyalStraight);
 
             ArrayList<String[]> combiStraightFlush = isStraightFlush(playingCards);
-            cardCombi.add(combiStraightFlush);
+            cardCombination.add(combiStraightFlush);
 
-            cardCombi.add(isFourKind(playingCards));
-            cardCombi.add(isFullHouse(playingCards));
+            cardCombination.add(isFourKind(playingCards));
+            cardCombination.add(isFullHouse(playingCards));
 
             ArrayList<String[]> combiFlush = isFlush(playingCards);
             combiFlush = removeExtra(combiFlush, combiRoyalStraight);
             combiFlush = removeExtra(combiFlush, combiStraightFlush);
-            cardCombi.add(combiFlush);
+            cardCombination.add(combiFlush);
 
             ArrayList<String[]> combiStraight = isStraight(playingCards);
             combiStraight = removeExtra(combiStraight, combiStraightFlush);
             combiStraight = removeExtra(combiStraight, combiRoyalStraight);
-            cardCombi.add(combiStraight);
+            cardCombination.add(combiStraight);
 
-            cardCombi.add(isThreeKind(playingCards));
-            cardCombi.add(isTwoPair(playingCards));
-            cardCombi.add(isPair(playingCards));
-            cardCombi.add(isHighCard(playingCards));
+            cardCombination.add(isThreeKind(playingCards));
+            cardCombination.add(isTwoPair(playingCards));
+            cardCombination.add(isPair(playingCards));
+            cardCombination.add(isHighCard(playingCards));
 
-            return cardCombi;
+            return cardCombination;
         }
 
         //Sort Each Players Cards into each Hand
-        public static ArrayList<ArrayList> sortHand(ArrayList<String> playingCards, ArrayList<String[]> shuffledCards, ArrayList<ArrayList> cardCombi) {
+        public static ArrayList<ArrayList> sortHand(ArrayList<String> playingCards, ArrayList<String[]> shuffledCards, ArrayList<ArrayList> cardCombination) {
 
             ArrayList<ArrayList> sortedPlayerHand = new ArrayList<>();
 
             //Loop for each participants cards
-            for (int i = 0; i < shuffledCards.size(); i++) {
+            for (String[] playerCards : shuffledCards) {
 
                 //Storage for each participants cards
-                String[] playerCards = shuffledCards.get(i);
                 ArrayList<String> participantCards = new ArrayList<>();
 
                 //Converts array string into list
-                for (int x = 0; x < playerCards.length; x++) {
-                    participantCards.add(playerCards[x]);
-                }
+                participantCards.addAll(Arrays.asList(playerCards));
 
                 ArrayList<String> backHand = new ArrayList<>(); // 0
-                ArrayList<String> midHand = new ArrayList<>(); // 1
+                ArrayList<String> middleHand = new ArrayList<>(); // 1
                 ArrayList<String> frontHand = new ArrayList<>(); // 2
 
-                handpos:
-                for (int handpos = 0; handpos < 3; handpos++) {
+                handPosition:
+                for (int handPosition = 0; handPosition < 3; handPosition++) {
                     //Loop to access each combinationList
-                    for (ArrayList<String[]> arrString : cardCombi) {
+                    for (ArrayList<String[]> arrString : cardCombination) {
 
                         //loop to get array String in each combinations
                         for (String[] strings : arrString) {
@@ -409,9 +407,7 @@ import java.util.Scanner;
                             int count = 0;
 
                             //loop to access each Array String and compare to participants Card
-                            for (int l = 0; l < strings.length; l++) {
-
-                                String tmp = strings[l];
+                            for (String tmp : strings) {
 
                                 //loop for access on each player cards
                                 for (String tmp1 : participantCards) {
@@ -438,12 +434,12 @@ import java.util.Scanner;
                                         if (tmp.equals(tmp1)) {
 
                                             //adds to  sorted hand
-                                            switch (handpos) {
+                                            switch (handPosition) {
                                                 case 0:
                                                     backHand.add(tmp1);
                                                     break;
                                                 case 1:
-                                                    midHand.add(tmp1);
+                                                    middleHand.add(tmp1);
                                                     break;
                                                 case 2:
                                                     frontHand.add(tmp1);
@@ -458,7 +454,7 @@ import java.util.Scanner;
                                     }
                                 }
                                 //Changes Hand Pos
-                                continue handpos;
+                                continue handPosition;
                             }
                         }
                     }
@@ -473,7 +469,7 @@ import java.util.Scanner;
                     for (int y = 0; y < unfilled; y++) {
 
                         //Gets the list of high Cards
-                        ArrayList<String[]> highCards = cardCombi.get(9);
+                        ArrayList<String[]> highCards = cardCombination.get(9);
 
                         for (String[] arr : highCards) {
 
@@ -492,16 +488,16 @@ import java.util.Scanner;
                     }
                 }
 
-                //completes the 5 size of midhan
-                if (midHand.size() < 5) {
+                //completes the 5 size of mid hand
+                if (middleHand.size() < 5) {
 
                     //size of unfilled cards
-                    int unfilled = 5 - midHand.size();
+                    int unfilled = 5 - middleHand.size();
                     minus:
                     for (int y = 0; y < unfilled; y++) {
 
                         //Gets the list of high Cards
-                        ArrayList<String[]> highCards = cardCombi.get(9);
+                        ArrayList<String[]> highCards = cardCombination.get(9);
 
                         for (String[] arr : highCards) {
 
@@ -510,7 +506,7 @@ import java.util.Scanner;
                             for (int k = 0; k < participantCards.size(); k++) {
 
                                 if (tmp1.equals(participantCards.get(k))) {
-                                    midHand.add(participantCards.get(k));
+                                    middleHand.add(participantCards.get(k));
                                     participantCards.remove(k);
                                     continue minus;
                                 }
@@ -521,15 +517,9 @@ import java.util.Scanner;
 
                 frontHand.addAll(participantCards);
 
-            /*
-            for (int k = 0; k < participantCards.size(); k++) {
-                frontHand.add(participantCards.get(k));
-            }
-             */
-
                 ArrayList<ArrayList> playerCard = new ArrayList<>();
                 playerCard.add(frontHand);
-                playerCard.add(midHand);
+                playerCard.add(middleHand);
                 playerCard.add(backHand);
 
 
@@ -539,14 +529,12 @@ import java.util.Scanner;
         }
 
         //Scoring for Each Hand
-        public static void scoring(ArrayList<ArrayList> participantCards, String[] participants, ArrayList<ArrayList> cardCombi, ArrayList<int[]> participant_Stat) {
+        public static void scoring(ArrayList<ArrayList> participantCards, String[] participants, ArrayList<ArrayList> cardCombination, ArrayList<int[]> participant_Stat) {
 
             ArrayList<ArrayList> playerHandScore = new ArrayList<>();
             ArrayList<ArrayList> playerHandType = new ArrayList<>();
 
-            for (int i = 0; i < participantCards.size(); i++) {
-
-                ArrayList<ArrayList> deck = participantCards.get(i);
+            for (ArrayList<ArrayList> deck : participantCards) {
 
                 ArrayList<Integer> eachHandScore = new ArrayList<>();
                 ArrayList<String> eachHandType = new ArrayList<>();
@@ -556,16 +544,16 @@ import java.util.Scanner;
                 for (ArrayList arrayList : deck) {
                     int score = 0;
 
-                    for (int type = 0; type < cardCombi.size(); type++) {
+                    for (int type = 0; type < cardCombination.size(); type++) {
 
-                        ArrayList<String[]> combiType = cardCombi.get(type);
+                        ArrayList<String[]> combiType = cardCombination.get(type);
 
-                        for (int m = 0; m < combiType.size(); m++) {
+                        for (String[] strings : combiType) {
 
                             int count = 0;
                             score++;
 
-                            String[] combiPattern = combiType.get(m);
+                            String[] combiPattern = strings;
 
                             for (int n = 0; n < combiPattern.length; n++) {
 
@@ -582,8 +570,6 @@ import java.util.Scanner;
                             }
 
                             if (count == combiPattern.length) {
-
-                                //displayCombi(combiType);
 
                                 eachHandScore.add(score);
 
@@ -692,8 +678,8 @@ import java.util.Scanner;
 
                     ArrayList<String> eachHand = playerHand.get(j); // Players Hand
 
-                    for (int k = 0; k < eachHand.size(); k++) {    //
-                        System.out.print(eachHand.get(k) + "\t");// Display
+                    for (String s : eachHand) {    //
+                        System.out.print(s + "\t");// Display
                     }
 
                     if (bankerScore.get(j) > playerScore.get(j)) {
@@ -715,7 +701,7 @@ import java.util.Scanner;
                 if (pScore > bScore) {
 
                     System.out.println("\n[__<<   " + participants[i] + " Won!!!" + "   >>__]");
-                    //add wins and subracts loss
+                    //add wins and subtracts loss
                     p_score[0] += 1;
                     if (p_score[1] == 0) {
                         p_score[1] = 0;
@@ -734,7 +720,7 @@ import java.util.Scanner;
                 } else {
                     System.out.println("\n[__<< " + participants[0] + " Won!!!" + " >>__]");
 
-                    //add wins and subracts loss
+                    //add wins and subtracts loss
                     b_score[0] += 1;
                     if (b_score[1] == 0) {
                         b_score[1] = 0;
@@ -858,7 +844,7 @@ import java.util.Scanner;
         //ArrayList String to Sting [] , Merging of Partition Participants Cards
         public static String[] listToArr(ArrayList<String> x, String[] y) {
 
-            //this doesnt seem working
+            //this doesn't seem working
             for (int i = 0; i < x.size(); i++) {
                 y[i] = x.get(i);
             }
@@ -1045,7 +1031,7 @@ import java.util.Scanner;
             int size = 52;
 
             boolean isRunning = true;
-            while (isRunning == true) {
+            while (isRunning) {
 
                 for (int i = pos[0]; i < size; i += 13) {
 
@@ -1087,7 +1073,7 @@ import java.util.Scanner;
             int x;
 
             boolean isRunning = true;
-            while (isRunning == true) {
+            while (isRunning) {
 
                 for (int i = pos[0]; i < size; i += 13) {
 
@@ -1152,7 +1138,7 @@ import java.util.Scanner;
             int size = 52;
 
             boolean isRunning = true;
-            while (isRunning == true) {
+            while (isRunning) {
 
                 for (int i = pos[0]; i < size; i += 13) {
 
@@ -1190,7 +1176,7 @@ import java.util.Scanner;
             int x;
 
             boolean isRunning = true;
-            while (isRunning == true) {
+            while (isRunning) {
 
                 for (int i = pos[0]; i < size; i += 13) {
 
@@ -1303,9 +1289,9 @@ import java.util.Scanner;
         }
 
         //Game Character Stats
-        public static void gameStats(String pName, ArrayList<int[]> participant_Stat) {
+        public static void gameStats(String playerName, ArrayList<int[]> participant_Stat) {
             clearConsole(70);
-            String[] participants = {"Banker ( " + pName + " )",
+            String[] participants = {"Banker ( " + playerName + " )",
                     "Player  ( Oppa )",
                     "Player  ( BakaTaco )",
                     "Player  ( HeartHeater )"};
@@ -1336,7 +1322,7 @@ import java.util.Scanner;
         public static void teamMembers() {
 
             clearConsole(70);
-            String[] members = {"Agustin, Calra L.",
+            String[] members = {"Agustin, Carla L.",
                     "Almazan, Gilbert C.",
                     "Amarillo, Vic Alfred",
                     "Barroga, Jeorge Michael P.",
@@ -1362,11 +1348,11 @@ import java.util.Scanner;
                     + "\n\t[ 1 ]  Yes, it was fun..."
                     + "\n\t[ 2 ]  No, lel...");
 
-            int isByebye = readInt(2);
+            int isExit = readInt(2);
 
-            if (isByebye == 1) {
+            if (isExit == 1) {
                 clearConsole(70);
-                print("Game Masot: Bye bye, Come Play with me again...");
+                print("Game Mascot: Bye bye, Come Play with me again...");
                 clearConsole(70);
                 return false;
             }
