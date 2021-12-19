@@ -3,7 +3,7 @@ package com;
 import java.util.Scanner;
 import java.math.BigInteger;
 
-class BigInteger {
+class BigInt {
     public static void main(String[] args) {
         // BigInteger is immutable and an object
         Scanner sc = new Scanner(System.in);

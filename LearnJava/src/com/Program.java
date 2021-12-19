@@ -1,3 +1,5 @@
+package com;
+
 import java.util.Scanner;
 
 /**
@@ -7,6 +9,7 @@ import java.util.Scanner;
  * @author Almazan, Gilbert C.
  * @date 12/10/21
  */
+
 
 public class Program {
 
