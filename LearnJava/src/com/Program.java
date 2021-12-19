@@ -22,7 +22,6 @@ public class Program {
 
         //Conditional Expression
         String line = (name.equals("Unknown") ? "???: Better sue the company" : "Author: Assistant bot defective!!");
-
         System.out.println(line);
     }
 
