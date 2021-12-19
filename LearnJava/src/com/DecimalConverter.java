@@ -16,10 +16,9 @@ public class DecimalConverter {
       
         System.out.printf("Conversion result:     %s", Long.toString(a, radix).toUpperCase());
 
-        if (radix == 16 ) System.out.printf("Conversion result:    %s", Integer.toHexString(decimalValue));
-        if (radix == 8 ) System.out.printf("Conversion result:    %s", Integer.toOctalString(decimalValue));
-        if (radix == 2 ) System.out.printf("Conversion result:    %s", Integer.toBinaryString(decimalValue)); 
+        //if (radix == 16 ) System.out.printf("Conversion result:    %s", Integer.toHexString(decimalValue));
+        //if (radix == 8 ) System.out.printf("Conversion result:    %s", Integer.toOctalString(decimalValue));
+        //if (radix == 2 ) System.out.printf("Conversion result:    %s", Integer.toBinaryString(decimalValue));
             }
     }
-  
-}
+

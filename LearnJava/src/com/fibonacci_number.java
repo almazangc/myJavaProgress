@@ -9,7 +9,7 @@ package com;
 
 import java.util.Scanner;
 
-public class fibonacci_sequence {
+class fibonacci_sequence {
 
     private static final Scanner scan = new Scanner(System.in);
 
