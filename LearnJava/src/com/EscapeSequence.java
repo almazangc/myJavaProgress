@@ -22,7 +22,7 @@ public class EscapeSequence {
         //\r Insert a carriage return in the text at this point
         System.out.print("a\n\rreturn");
 
-        //\f formfeed
+        //\f form feed
         System.out.println("\f");
 
         //\ddd octal char
