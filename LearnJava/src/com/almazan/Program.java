@@ -3,29 +3,32 @@ package com.almazan;
 import java.util.Scanner;
 
 /**
- * Programming Languages
+ * Programming Languages Laboratory
  * Lab Activity - Task 1
  *
  * @author Almazan, Gilbert C.
  * @date 12/10/21
  */
 
-
 public class Program {
 
-    final static Scanner scan = new Scanner(System.in);  // Create a Scanner object statement
+    // Create a Scanner object statement
+    final static Scanner scan = new Scanner(System.in);
 
+    //main method
     public static void main(String[] args) {
         String name; //Declaration statement, variable
         name = getName(); //method invocation statement
         askUser(name);
 
+        //askUser(getName());
+
         //Conditional Expression
-        String line = (name.equals("Unknown") ? "???: Better sue the company" : "Author: Assistant bot defective!!");
+        String line = (name.equals("OWO") ? "???: Better sue the company" : "Author: Assistant bot defective!!");
         System.out.println(line);
     }
 
-    //get user name
+    //Get User Preferred Name
     public static String getName() {
         // method invocation statement
         System.out.println("Hello, Nice to meet you!");
@@ -34,7 +37,7 @@ public class Program {
         return scan.nextLine();
     }
 
-    //Ask user what command to do
+    //Get User Selected Action (parameter String name)
     public static void askUser(String name) {
         clearLine(); //// method invocation statement
         System.out.println("Bleep, Bloop, What should I do today?");
@@ -48,7 +51,7 @@ public class Program {
         botAction(scan.nextLine(), name);
     }
 
-    //Display corresponding user input
+    //Display Corresponding Response of User Input (parameter String input, and String name)
     public static void botAction(String input, String name) {
         //Conditional Statement
         switch (input) {
@@ -99,7 +102,7 @@ public class Program {
         }
     }
 
-    //Clear the printed line, For Loop
+    //Clear Terminal by 70 Flushing Newline, For Loop
     public static void clearLine() {
         for (int i = 0; i <= 70; i++) {
             System.out.println();
