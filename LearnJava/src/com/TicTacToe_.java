@@ -7,8 +7,8 @@ public class TicTacToe_ {
     static final Scanner sc = new Scanner(System.in);
 
     static char[][] TicTacToeGrid = new char[3][3];
-    static boolean isXwon = false;
-    static boolean isOwon = false;
+    static boolean isXWon = false;
+    static boolean isOWon = false;
     static boolean hasEmptyGrid = true;
     static boolean isXTurn = true;
     static boolean isEnd = false;
@@ -81,15 +81,15 @@ public class TicTacToe_ {
         for (int i = 0; i < TicTacToeGrid.length; i++) {
             in = TicTacToeGrid[i][i];
             if ((TicTacToeGrid[i][0] == in && TicTacToeGrid[i][1] == in && TicTacToeGrid[i][2] == in) || (TicTacToeGrid[0][i] == in && TicTacToeGrid[1][i] == in && TicTacToeGrid[2][i] == in)) {
-                if (in == 'X') isXwon = true;
-                if (in == 'O') isOwon = true;
+                if (in == 'X') isXWon = true;
+                if (in == 'O') isOWon = true;
             }
         }
         if (TicTacToeGrid[1][1] != ' ') {
             in = TicTacToeGrid[1][1];
             if ((TicTacToeGrid[0][0] == in && TicTacToeGrid[2][2] == in) || (TicTacToeGrid[0][2] == in && TicTacToeGrid[2][0] == in)) {
-                if (in == 'X') isXwon = true;
-                if (in == 'O') isOwon = true;
+                if (in == 'X') isXWon = true;
+                if (in == 'O') isOWon = true;
             }
         }
         for (char[] i : TicTacToeGrid) {
@@ -103,10 +103,10 @@ public class TicTacToe_ {
     }
 
     static void displayResult() {
-        if (isXwon && !isOwon) {
+        if (isXWon && !isOWon) {
             System.out.println("X wins");
             isEnd = true;
-        } else if (!isXwon && isOwon) {
+        } else if (!isXWon && isOWon) {
             System.out.println("O wins");
             isEnd = true;
         } else if (!hasEmptyGrid) {
