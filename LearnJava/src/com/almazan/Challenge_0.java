@@ -22,7 +22,7 @@ public class Challenge_0 {
         double theRemainder = totalOfDoubles % 40.00d;
         System.out.println("theRemainder = " + theRemainder);
 
-        boolean isNoRemainder = (theRemainder == 0) ? true : false;
+        boolean isNoRemainder = theRemainder == 0;
         System.out.println("isNoRemainder = " + isNoRemainder);
 
         if (!isNoRemainder) {

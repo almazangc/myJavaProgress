@@ -31,7 +31,7 @@ public class eHandling {
         }
         catch (Exception e){
             System.out.println("Cant accept that!");
-            System.out.println("Error: " + e.toString());
+            System.out.println("Error: " + e);
             System.out.println("Error Message: " + e.getMessage());
             e.printStackTrace();
             getInput.next(); //flushing current input

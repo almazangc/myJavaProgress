@@ -14,7 +14,7 @@ public class ArrayDemo {
         String[] anArrayOfStrings;
 
         // this form is discouraged
-        float anArrayOfFloats1[];
+        float[] anArrayOfFloats1;
 
         //Array Declaration
         int[] IntArr;

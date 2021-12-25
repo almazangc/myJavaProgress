@@ -6,7 +6,7 @@ public class bugSearch {
 
     public static String hello = "Hello"; // (1)
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         System.out.println(DEFAULT_APPLICATION_NAME); // (2)
 
