@@ -58,7 +58,7 @@ class playerInfo{
     }
 }
 
-public class Contructor_Class {
+public class Constructor_Class {
     static final Scanner getInput = new Scanner(System.in);
     public static void main(String[] args) {
         pet cat = new pet();
