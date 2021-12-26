@@ -40,15 +40,15 @@ NOTE: In total, you have to write 5 methods and 2 constructors.
 NOTE: Do not add a main method to the solution code.
  */
 
-public class Wall {
+public class WallCalc {
     private double width;
     private double height;
 
-    public Wall(){
+    public WallCalc(){
 
     }
 
-    public Wall(double width, double height) {
+    public WallCalc(double width, double height) {
 
         this.width = width;
         this.height = height;
