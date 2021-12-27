@@ -9,7 +9,6 @@ import java.util.Scanner;
  * @author Almazan, Gilbert C.
  * @date 12/10/21
  */
-
 public class Program {
 
     // Create a Scanner object statement
@@ -41,7 +40,7 @@ public class Program {
 
     /**
      * Prompt the user to select an action
-     * @param name
+     * @param name user name
      */
     public static void askUser(String name) {
         clearLine(); //// method invocation statement
@@ -59,7 +58,7 @@ public class Program {
     /**
      * Display corresponding action entered by user
      * @param input string use to display corresponding selected action of user
-     * @param name
+     * @param name user name
      */
     public static void botAction(String input, String name) {
         //Conditional Statement
