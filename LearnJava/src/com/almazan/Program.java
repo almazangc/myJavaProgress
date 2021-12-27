@@ -15,7 +15,6 @@ public class Program {
     // Create a Scanner object statement
     final static Scanner scan = new Scanner(System.in);
 
-    //main method
     public static void main(String[] args) {
         String name; //Declaration statement, variable
         name = getName(); //method invocation statement
@@ -28,7 +27,10 @@ public class Program {
         System.out.println(line);
     }
 
-    //Get User Preferred Name
+    /**
+     * Prompt the user to enter desired name;
+     * @return String user input name
+     */
     public static String getName() {
         // method invocation statement
         System.out.println("Hello, Nice to meet you!");
@@ -37,7 +39,10 @@ public class Program {
         return scan.nextLine();
     }
 
-    //Get User Selected Action (parameter String name)
+    /**
+     * Prompt the user to select an action
+     * @param name
+     */
     public static void askUser(String name) {
         clearLine(); //// method invocation statement
         System.out.println("Bleep, Bloop, What should I do today?");
@@ -51,7 +56,11 @@ public class Program {
         botAction(scan.nextLine(), name);
     }
 
-    //Display Corresponding Response of User Input (parameter String input, and String name)
+    /**
+     * Display corresponding action entered by user
+     * @param input string use to display corresponding selected action of user
+     * @param name
+     */
     public static void botAction(String input, String name) {
         //Conditional Statement
         switch (input) {
@@ -102,7 +111,9 @@ public class Program {
         }
     }
 
-    //Clear Terminal by 70 Flushing Newline, For Loop
+    /**
+     * Display 70 new line on console
+     */
     public static void clearLine() {
         for (int i = 0; i <= 70; i++) {
             System.out.println();
