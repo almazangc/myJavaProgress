@@ -1,5 +1,8 @@
 package com.almazan.Section8.InbuiltList.MobilePhone;
 
+/**
+ * Composition Class for MobilePhone
+ */
 public class Contact {
 
     /**

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class MobilePhone {
 
     /**
-     * Encapsulated Fields
+     * Encapsulated Field
      */
     private ArrayList<Contact> myContacts;
 
