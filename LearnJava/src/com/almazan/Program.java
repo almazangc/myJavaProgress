@@ -56,15 +56,16 @@ public class Program {
     }
 
     /**
-     * Display corresponding action entered by user
+     * Display corresponding response depends on action entered by user
      * @param input string use to display corresponding selected action of user
      * @param name user name
      */
     public static void botAction(String input, String name) {
+        clearLine();
+
         //Conditional Statement
         switch (input) {
             case "1":
-                clearLine();
                 System.out.println("""
                         Initiating cleaning mode...
                         Bleep.. Bloop....
@@ -75,7 +76,6 @@ public class Program {
                         Bleeeh... Blfgsdhj... Shutting Down""");
                 break;
             case "2":
-                clearLine();
                 System.out.println("""
                         Checking your favorite food....
                         Beep..... Beep....
@@ -87,7 +87,6 @@ public class Program {
                         Bot overload... Shutting down""");
                 break;
             case "3":
-                clearLine();
                 System.out.println("Stand by mode.... Initiated");
                 System.out.print("Press enter any key to exit stand by mode...");
                 scan.nextLine();
@@ -95,11 +94,9 @@ public class Program {
                 askUser(name); //method loop
                 break;
             case "4":
-                clearLine();
                 System.out.println("Shutting down.......");
                 break;
             default:
-                clearLine();
                 System.out.println("Err.. Input " + input + "  not found Err..." +
                         "\nEnter a valid input please");
                 System.out.print("Press enter to continue.....");
@@ -111,7 +108,7 @@ public class Program {
     }
 
     /**
-     * Display 70 new line on console
+     * Prints 70 new line on console
      */
     public static void clearLine() {
         for (int i = 0; i <= 70; i++) {
