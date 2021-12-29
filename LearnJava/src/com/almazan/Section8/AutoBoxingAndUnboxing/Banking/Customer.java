@@ -31,6 +31,10 @@ public class Customer {
         return this.transactions;
     }
 
+    /**
+     * Adds new transaction to the customer
+     * @param transaction ammount being added
+     */
     public void addTransaction(double transaction){
         this.transactions.add(transaction);
     }

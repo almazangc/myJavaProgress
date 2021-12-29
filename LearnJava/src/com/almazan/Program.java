@@ -56,8 +56,8 @@ public class Program {
     }
 
     /**
-     * Display corresponding response depends on action entered by user
-     * @param input string use to display corresponding selected action of user
+     * Display corresponding response depending on action entered by the user
+     * @param input use to display corresponding action entered by the user
      * @param name user name
      */
     public static void botAction(String input, String name) {
@@ -108,7 +108,7 @@ public class Program {
     }
 
     /**
-     * Prints 70 new line on console
+     * Display 70 new line on console
      */
     public static void clearLine() {
         for (int i = 0; i <= 70; i++) {
