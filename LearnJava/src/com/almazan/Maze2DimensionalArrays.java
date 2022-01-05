@@ -259,10 +259,10 @@ public class Maze2DimensionalArrays {
                         System.out.print("0 ");
                         break;
                     case 2: // map player facing and position
-                        System.out.print(((RL == 0)? "▲ ‏‏":
+                        System.out.print(((RL == 0)? "▲":
                                 (RL == 1)? "► ":
                                         (RL == 2)? "▼ "
-                                                : "◄‏‏  "));
+                                                : "◄ "));
                         break;
                 }
             }

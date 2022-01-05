@@ -11,7 +11,9 @@ import java.util.Scanner;
  */
 public class Program {
 
-    // Create a Scanner object statement
+    /**
+     *  Create a Scanner object statement
+     */
     final static Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -39,7 +41,7 @@ public class Program {
     }
 
     /**
-     * Prompt the user to select an action
+     * Prompt the user to select an action from 1-4
      * @param name user name
      */
     public static void askUser(String name) {
