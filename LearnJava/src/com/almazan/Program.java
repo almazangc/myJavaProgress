@@ -29,7 +29,7 @@ public class Program {
     }
 
     /**
-     * Prompt the user to enter desired name;
+     * Prompt the user to enter desired name
      * @return String user input name
      */
     public static String getName() {
