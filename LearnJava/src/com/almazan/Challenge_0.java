@@ -1,6 +1,6 @@
 package com.almazan;
 /*
-    Let's test what you have learned about Operators.
+    Let's com.almazan.TicTacToe_.test what you have learned about Operators.
  1. Create a double variable with a value of 20.00.
  2. Create a second variable of type double with the value 8
  3. Add both numbers together and multiply by 100.00.

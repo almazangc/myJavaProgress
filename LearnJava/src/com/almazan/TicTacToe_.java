@@ -114,4 +114,13 @@ public class TicTacToe_ {
             isEnd = true;
         }
     }
+
+    public static class test {
+        public static void main(String[] args) {
+            int preAge = 0;
+            int posAge = 0;
+            System.out.println(++preAge);
+            System.out.println(posAge++);
+        }
+    }
 }
