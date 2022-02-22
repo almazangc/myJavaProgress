@@ -48,9 +48,9 @@ public class Album {
         // Note: trackNumbers start at 1.
         if (trackNumber <= 0 || trackNumber > songs.size()) {
             // trackNumber was out of range
+            System.out.println("This album does not have a track " + trackNumber);
             return false;
         }
-
         // get the song from the album
         Song songToAdd = songs.get(trackNumber-1);
         String songToAddTitle = songToAdd.getTitle();
@@ -74,6 +74,7 @@ public class Album {
         Song songToAdd = findSong(title);
         if (songToAdd == null) {
             // The song was not found
+            System.out.println("The song " + title + " is not in this album");
             return false;
         }
         // Check if the song is already in the playList

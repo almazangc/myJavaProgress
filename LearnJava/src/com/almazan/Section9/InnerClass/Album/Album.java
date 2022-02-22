@@ -18,21 +18,24 @@ public class Album {
         return this.songs.add(new Song(songTitle,duration));
     }
 
-    public boolean addToPlayList(int trackNumber, LinkedList<Song> playlist) {
+    public boolean addToPlayList(int trackNumber, LinkedList<Song> playList) {
         Song checkedSong = this.songs.findSong(trackNumber);
         if(checkedSong != null) {
-            playlist.add(checkedSong);
+            playList.add(checkedSong);
             return true;
         }
+
+        System.out.println("This album does not have a track " + trackNumber);
         return false;
     }
 
-    public boolean addToPlayList(String songTitle, LinkedList<Song> playlist) {
-        Song checkedSong = this.songs.findSong(songTitle);
+    public boolean addToPlayList(String title, LinkedList<Song> playList) {
+        Song checkedSong = songs.findSong(title);
         if(checkedSong != null) {
-            playlist.add(checkedSong);
+            playList.add(checkedSong);
             return true;
         }
+        System.out.println("The song " + title + " is not in this album");
         return false;
     }
 
