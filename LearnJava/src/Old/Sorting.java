@@ -168,7 +168,7 @@ public class Sorting {
         System.out.println(line);
     }
 
-    //mergeSort Main
+    //mergeSort LabExert1A
     static void mergeSort() {
         int[] arr = getInput();
         displaySort(arr, "Unsorted");
@@ -246,7 +246,7 @@ public class Sorting {
         }
     }
 
-    //quickSort Main
+    //quickSort LabExert1A
     static void quickSort() {
         int[] arr = getInput();
         displaySort(arr, "Unsorted");
